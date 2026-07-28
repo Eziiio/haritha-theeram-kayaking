@@ -1,58 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
-  
-  /* Primary Green Palette (Kerala Palms) */
-  --color-primary-50: #f2fbf5;
-  --color-primary-100: #e2f7e7;
-  --color-primary-200: #c6eed1;
-  --color-primary-300: #9adbaf;
-  --color-primary-400: #67c283;
-  --color-primary-500: #3fa55f;
-  --color-primary-600: #2f874c;
-  --color-primary-700: #276c3e;
-  --color-primary-800: #215633;
-  --color-primary-900: #1c472c;
-  
-  /* Accent Teal Palette (Kerala Waters) */
-  --color-teal-50: #f0fdfa;
-  --color-teal-100: #ccfbf1;
-  --color-teal-200: #99f6e4;
-  --color-teal-300: #5eead4;
-  --color-teal-400: #2dd4bf;
-  --color-teal-500: #14b8a6;
-  --color-teal-600: #0d9488;
-  --color-teal-700: #0f766e;
-  --color-teal-800: #115e59;
-  --color-teal-900: #134e4a;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
 
-  /* Custom Warm Accent (Kerala Sunsets) */
-  --color-sunset-50: #fffbeb;
-  --color-sunset-100: #fef3c7;
-  --color-sunset-500: #f59e0b;
-  --color-sunset-600: #d97706;
-  --color-sunset-700: #b45309;
+  /* Ink — deep backwater green-black (replaces slate for dark sections/text) */
+  --color-ink-50: #EEF2F0;
+  --color-ink-100: #D7E0DB;
+  --color-ink-400: #4A5F57;
+  --color-ink-600: #233A34;
+  --color-ink-700: #182A25;
+  --color-ink-800: #141F1B;
+  --color-ink-900: #10231F;
+  --color-ink-950: #0B1613;
+
+  /* Lagoon — muted teal-green (replaces primary/teal as the main accent) */
+  --color-lagoon-50: #EEF6F4;
+  --color-lagoon-100: #DCEEE9;
+  --color-lagoon-200: #B7DDD4;
+  --color-lagoon-300: #8CC6B8;
+  --color-lagoon-400: #5CA997;
+  --color-lagoon-500: #3A8C79;
+  --color-lagoon-600: #2F7A6E;
+  --color-lagoon-700: #25625A;
+  --color-lagoon-800: #1D4C46;
+  --color-lagoon-900: #173D38;
+
+  /* Gold — muted turmeric accent (replaces sunset) */
+  --color-gold-50: #FBF4E3;
+  --color-gold-100: #F5E6C2;
+  --color-gold-200: #EBCE8C;
+  --color-gold-300: #DFB65E;
+  --color-gold-400: #D2A648;
+  --color-gold-500: #C69A3C;
+  --color-gold-600: #AD8330;
+  --color-gold-700: #8C6926;
+
+  /* Sand — warm cream backgrounds (replaces slate-50) */
+  --color-sand-50: #FDFBF6;
+  --color-sand-100: #FAF6EC;
+  --color-sand-200: #F3ECDB;
+  --color-sand-300: #E9DFC5;
+
+  /* Clay — sparing warm secondary accent */
+  --color-clay-50: #F7ECE7;
+  --color-clay-400: #C17C5E;
+  --color-clay-500: #A85C3E;
+  --color-clay-600: #8D4B32;
 }
 
 /* Base resets & custom global styles */
 body {
-  font-family: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
-  @apply bg-slate-50 text-slate-800 antialiased;
+  @apply bg-sand-100 text-ink-800 antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
 }
 
 /* Glassmorphism utility classes */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(250, 246, 236, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .glass-dark {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(16, 35, 31, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -62,9 +84,43 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  @apply bg-slate-100;
+  @apply bg-sand-100;
 }
+
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+  @apply bg-lagoon-300 rounded-full hover:bg-lagoon-400;
+}
+
+/* Signature element: the Arival Thoodu river-line —
+   a single winding stroke used as a section divider,
+   standing in for the actual waterway the business is built around. */
+.river-divider {
+  display: block;
+  width: 140px;
+  height: 18px;
+  margin: 0 auto;
+}
+
+.river-divider path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+@keyframes river-draw {
+  from {
+    stroke-dashoffset: 300;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.river-draw path {
+  stroke-dasharray: 300;
+  animation: river-draw 1.4s ease-out forwards;
 }
